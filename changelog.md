@@ -6,3 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial commit with standard repository structure (README, LICENSE, gitignore).
 - Basic tool setup (`setup.py` & `fix_markitdown_images.py`).
+
+### Changed
+- Translated `README.md` to English and added detailed CLI arguments.
+
