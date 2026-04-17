@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Convert DOCX to Markdown using MarkItDown and extract embedded images.
+markitdownimage - Convert DOCX to Markdown using MarkItDown and extract embedded images.
 Input:  DOCX file
 Output: output.md + images extracted to 'images/' folder
 
@@ -166,13 +166,20 @@ def main():
     parser = argparse.ArgumentParser(
         description="Convert DOCX using MarkItDown & extract embedded images."
     )
-    parser.add_argument("input_docx",     help="Path to input DOCX file")
-    parser.add_argument("-o", "--output", required=True, help="Path to output Markdown file")
+    parser.add_argument("input_docx", help="Path to input DOCX file")
+    parser.add_argument(
+        "-o", "--output", default=None,
+        help="Path to output Markdown file (default: same name as input with .md extension)"
+    )
     parser.add_argument(
         "--legacy-dir", default="GIFT",
         help="Legacy directory to search for referenced images (default: GIFT)"
     )
     args = parser.parse_args()
+
+    # Tentukan output path: default ke nama file input + .md di direktori yang sama
+    if args.output is None:
+        args.output = str(Path(args.input_docx).with_suffix(".md"))
 
     base_dir   = Path.cwd()
     input_path = Path(args.input_docx)

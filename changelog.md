@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-04-17
+### Added
+- `-o` / `--output` argument is now optional; defaults to same filename as input with `.md` extension.
+- Output `images/` folder is placed relative to the output Markdown file location.
+
+### Changed
+- Renamed `fix_markitdown_images.py` → `markitdownimage.py` for consistency with the CLI command name.
+- Updated `setup.py` to reference new module name and bumped version to `1.1.0`.
+- Rewrote `README.md` with complete CLI reference table and how-it-works explanation.
+
+---
+
 ## [1.1.0] - 2026-04-17
 ### Added
 - New `extract_docx_images()` function: extracts images directly from DOCX ZIP (`word/media/`) instead of decoding base64.

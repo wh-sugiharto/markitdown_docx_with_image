@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 """
-Setup script untuk MarkItDown Image Recovery Tool
+Setup script untuk markitdownimage
 Install dengan: pip install -e .
+Kemudian panggil: markitdownimage file.docx
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-    name="markitdown-image-recovery",
-    version="1.0.0",
-    description="Convert DOCX to Markdown with image recovery from legacy folders",
+    name="markitdownimage",
+    version="1.1.0",
+    description="Convert DOCX to Markdown with embedded image extraction",
     author="",
-    author_email="your.email@example.com",
-    py_modules=["fix_markitdown_images"],  # file fix_markitdown_images.py akan di-import
+    author_email="",
+    python_requires=">=3.10",
+    py_modules=["markitdownimage"],   # merujuk ke markitdownimage.py
     install_requires=[
-        "markitdown",  # dependency utama
+        "markitdown",
     ],
     entry_points={
         "console_scripts": [
-            "markitdownimage=fix_markitdown_images:main",  # command name = module:function
+            # perintah CLI → module:function
+            "markitdownimage=markitdownimage:main",
         ],
     },
-    python_requires=">=3.7",
 )
